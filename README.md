@@ -1,6 +1,6 @@
 # bmi_app
 
-A new Flutter application.
+A simple Flutter application to calculate body mass index(BMI).
 
 ## What i Learnt
 
