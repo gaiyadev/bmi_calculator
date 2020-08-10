@@ -4,6 +4,7 @@ const bottomContainerHeight = 80.0;
 const iconSize = 80.0;
 const iconColor = Colors.white;
 const activeCardColor = Color(0XFF1D1E33);
+const inactiveCardColor = Color(0XFF111328);
 const bottomContainerColor = Color(0XFFEB1555);
 const labelColor = TextStyle(
   fontSize: 18.0,

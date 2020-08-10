@@ -10,6 +10,29 @@ class InputPage extends StatefulWidget {
 }
 
 class _InputPageState extends State<InputPage> {
+  Color maleCardColor = inactiveCardColor;
+  Color femaleCardColor = inactiveCardColor;
+
+  //when tap
+  void updateColor(int gender) {
+    if (gender == 1) {
+      if (maleCardColor == inactiveCardColor) {
+        maleCardColor = activeCardColor;
+        femaleCardColor = inactiveCardColor;
+      } else {
+        maleCardColor = inactiveCardColor;
+      }
+    }
+    if (gender == 2) {
+      if (femaleCardColor == inactiveCardColor) {
+        femaleCardColor = activeCardColor;
+        maleCardColor = inactiveCardColor;
+      } else {
+        femaleCardColor = inactiveCardColor;
+      }
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -22,21 +45,35 @@ class _InputPageState extends State<InputPage> {
             child: Row(
               children: [
                 Expanded(
-                  child: ReuseableCard(
-                    cardChild: ReuseableIcon(
-                      icon: FontAwesomeIcons.mars,
-                      label: 'MALE',
+                  child: GestureDetector(
+                    onTap: () {
+                      setState(() {
+                        updateColor(1);
+                      });
+                    },
+                    child: ReuseableCard(
+                      cardChild: ReuseableIcon(
+                        icon: FontAwesomeIcons.mars,
+                        label: 'MALE',
+                      ),
+                      colour: maleCardColor,
                     ),
-                    colour: activeCardColor,
                   ),
                 ),
                 Expanded(
-                  child: ReuseableCard(
-                    cardChild: ReuseableIcon(
-                      label: 'FEMALE',
-                      icon: FontAwesomeIcons.venus,
+                  child: GestureDetector(
+                    onTap: () {
+                      setState(() {
+                        updateColor(2);
+                      });
+                    },
+                    child: ReuseableCard(
+                      cardChild: ReuseableIcon(
+                        label: 'FEMALE',
+                        icon: FontAwesomeIcons.venus,
+                      ),
+                      colour: femaleCardColor,
                     ),
-                    colour: activeCardColor,
                   ),
                 )
               ],
@@ -71,7 +108,10 @@ class _InputPageState extends State<InputPage> {
             child: Center(
               child: Text(
                 'CALCULATE',
-                style: TextStyle(fontSize: 30.0),
+                style: TextStyle(
+                  fontSize: 30.0,
+                  color: Colors.white,
+                ),
               ),
             ),
           ),
