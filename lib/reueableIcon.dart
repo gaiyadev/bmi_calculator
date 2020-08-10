@@ -13,15 +13,15 @@ class ReuseableIcon extends StatelessWidget {
       children: [
         Icon(
           icon,
-          size: iconSize,
-          color: iconColor,
+          size: kIconSize,
+          color: kIconColor,
         ),
         SizedBox(
           height: 15.0,
         ),
         Text(
           label,
-          style: labelColor,
+          style: kLabelColor,
         )
       ],
     );

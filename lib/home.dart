@@ -21,44 +21,41 @@ class _InputPageState extends State<InputPage> {
         title: Text('BMI CALCULATOR'),
       ),
       body: Column(
+        crossAxisAlignment: CrossAxisAlignment.stretch,
         children: [
           Expanded(
             child: Row(
               children: [
                 Expanded(
-                  child: GestureDetector(
-                    onTap: () {
+                  child: ReuseableCard(
+                    onPress: () {
                       setState(() {
                         selectedGender = Gender.male;
                       });
                     },
-                    child: ReuseableCard(
-                      cardChild: ReuseableIcon(
-                        icon: FontAwesomeIcons.mars,
-                        label: 'MALE',
-                      ),
-                      colour: selectedGender == Gender.male
-                          ? activeCardColor
-                          : inactiveCardColor,
+                    cardChild: ReuseableIcon(
+                      icon: FontAwesomeIcons.mars,
+                      label: 'MALE',
                     ),
+                    colour: selectedGender == Gender.male
+                        ? kActiveCardColor
+                        : kInactiveCardColor,
                   ),
                 ),
                 Expanded(
-                  child: GestureDetector(
-                    onTap: () {
+                  child: ReuseableCard(
+                    onPress: () {
                       setState(() {
                         selectedGender = Gender.female;
                       });
                     },
-                    child: ReuseableCard(
-                      cardChild: ReuseableIcon(
-                        label: 'FEMALE',
-                        icon: FontAwesomeIcons.venus,
-                      ),
-                      colour: selectedGender == Gender.female
-                          ? activeCardColor
-                          : inactiveCardColor,
+                    cardChild: ReuseableIcon(
+                      label: 'FEMALE',
+                      icon: FontAwesomeIcons.venus,
                     ),
+                    colour: selectedGender == Gender.female
+                        ? kActiveCardColor
+                        : kInactiveCardColor,
                   ),
                 )
               ],
@@ -66,7 +63,31 @@ class _InputPageState extends State<InputPage> {
           ),
           Expanded(
             child: ReuseableCard(
-              colour: activeCardColor,
+              cardChild: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Text(
+                    'HEIGHT',
+                    style: kLabelColor,
+                  ),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    crossAxisAlignment: CrossAxisAlignment.baseline,
+                    textBaseline: TextBaseline.alphabetic,
+                    children: [
+                      Text(
+                        '123',
+                        style: kSliderLabelTextColor,
+                      ),
+                      Text(
+                        'cm',
+                        style: kLabelColor,
+                      ),
+                    ],
+                  ),
+                ],
+              ),
+              colour: kActiveCardColor,
             ),
           ),
           Expanded(
@@ -74,22 +95,22 @@ class _InputPageState extends State<InputPage> {
               children: [
                 Expanded(
                   child: ReuseableCard(
-                    colour: activeCardColor,
+                    colour: kActiveCardColor,
                   ),
                 ),
                 Expanded(
                   child: ReuseableCard(
-                    colour: activeCardColor,
+                    colour: kActiveCardColor,
                   ),
                 )
               ],
             ),
           ),
           Container(
-            color: bottomContainerColor,
+            color: kBottomContainerColor,
             margin: EdgeInsets.only(top: 10.0),
             width: double.infinity,
-            height: bottomContainerHeight,
+            height: kBottomContainerHeight,
             child: Center(
               child: Text(
                 'CALCULATE',
