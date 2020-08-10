@@ -24,3 +24,23 @@ const kSliderLabelTextColor = TextStyle(
     0XFF8D8D98,
   ),
 );
+
+const kTitleTextStyle = TextStyle(
+  fontSize: 50.0,
+  fontWeight: FontWeight.bold,
+  color: Colors.white,
+);
+
+const keResultTextStyle = TextStyle(
+  color: Color(0XFF24D876),
+  fontWeight: FontWeight.bold,
+  fontSize: 22.0,
+);
+
+const kBmiTextStyle = TextStyle(
+  fontWeight: FontWeight.bold,
+  fontSize: 50.0,
+  color: Colors.white,
+);
+
+const kBodyTextStyle = TextStyle(fontSize: 22.0, color: Colors.white);
