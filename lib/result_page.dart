@@ -1,11 +1,18 @@
 import 'package:bmi_app/constants.dart';
 import 'package:bmi_app/reusableCard.dart';
-import 'package:bmi_app/reuseableIcon.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'bottom_button.dart';
 
 class ResultPage extends StatelessWidget {
+  final String bmiResult;
+  final String resultText;
+  final String interpretation;
+  ResultPage(
+      {@required this.bmiResult,
+      @required this.interpretation,
+      @required this.resultText});
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -35,15 +42,15 @@ class ResultPage extends StatelessWidget {
                   crossAxisAlignment: CrossAxisAlignment.center,
                   children: [
                     Text(
-                      'Normal',
+                      resultText.toUpperCase(),
                       style: keResultTextStyle,
                     ),
                     Text(
-                      '55.7',
+                      bmiResult,
                       style: kBmiTextStyle,
                     ),
                     Text(
-                      'Your bmi result is low',
+                      interpretation,
                       style: kBodyTextStyle,
                     ),
                   ],
